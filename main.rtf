@@ -1,0 +1,1413 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset238 Calibri;}{\f2\fnil\fcharset163 Calibri;}}
+{\colortbl ;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 <?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".MainActivity">\par
+\par
+    <TextView\par
+        android:id="@+id/textView3"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="28dp"\par
+        android:text="\f1\'d0\'c3NG NH\f2\lang1066\u7852?P"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent" />\par
+\par
+    <TextView\par
+        android:id="@+id/textView"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginEnd="1dp"\par
+        android:layout_marginBottom="10dp"\par
+        android:text="T\f0\lang1033\'ean \f1\'f0\'e3ng nh\f2\lang1066\u7853?p"\par
+        app:layout_constraintBottom_toBottomOf="@+id/txtTenDang"\par
+        app:layout_constraintEnd_toStartOf="@+id/txtTenDang"\par
+        app:layout_constraintStart_toStartOf="parent" />\par
+\par
+    <TextView\par
+        android:id="@+id/textView2"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="20dp"\par
+        android:text="M\u7853?t kh\u7849?u"\par
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtMatkhau"\par
+        app:layout_constraintEnd_toStartOf="@+id/txtMatkhau"\par
+        app:layout_constraintStart_toStartOf="parent" />\par
+\par
+    <Button\par
+        android:id="@+id/btnDangNhap"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="63dp"\par
+        android:backgroundTint="#03A9F4"\par
+        android:text="\f1\'d0\'e3ng nh\f2\u7853?p"\par
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnThoat"\par
+        app:layout_constraintStart_toStartOf="parent" />\par
+\par
+    <Button\par
+        android:id="@+id/btnThoat"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="11dp"\par
+        android:layout_marginTop="43dp"\par
+        android:text="Tho\f0\lang1033\'e1t"\par
+        app:layout_constraintStart_toEndOf="@+id/btnDangNhap"\par
+        app:layout_constraintTop_toBottomOf="@+id/txtMatkhau" />\par
+\par
+    <EditText\par
+        android:id="@+id/txtTenDang"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="12dp"\par
+        android:layout_marginEnd="26dp"\par
+        android:ems="10"\par
+        android:inputType="text"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toEndOf="@+id/textView"\par
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />\par
+\par
+    <EditText\par
+        android:id="@+id/txtMatkhau"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="22dp"\par
+        android:layout_marginEnd="24dp"\par
+        android:ems="10"\par
+        android:inputType="textPassword"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toEndOf="@+id/textView2"\par
+        app:layout_constraintTop_toBottomOf="@+id/txtTenDang" />\par
+\par
+</android.support.constraint.ConstraintLayout>\par
+\par
+//////////////////////////////////////////Main///////////////////////////////////\par
+package com.example.chuan_nhat;\par
+\par
+import android.content.Intent;\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.Button;\par
+import android.widget.EditText;\par
+import android.widget.Toast;\par
+\par
+public class MainActivity extends AppCompatActivity \{\par
+    Button btnDangNHap, btnThoat;\par
+    EditText txtTenDangNhap, txtMatKhau;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main);\par
+        //tham chi\f2\lang1066\u7871?u\par
+        btnThoat = findViewById(R.id.btnThoat);\par
+        btnDangNHap = findViewById(R.id.btnDangNhap);\par
+        txtTenDangNhap = findViewById(R.id.txtTenDang);\par
+        txtMatKhau = findViewById(R.id.txtMatkhau);\par
+        btnThoat.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                System.exit(1);\par
+            \}\par
+        \});\par
+        btnDangNHap.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                String tendangnhap = txtTenDangNhap.getText().toString();\par
+                String matkhau = txtMatKhau.getText().toString();\par
+                if(tendangnhap.equals("Admin") && matkhau.equals("Password"))\{\par
+                    Intent intent = new Intent(MainActivity.this,Dukhach.class);\par
+                    startActivity(intent);\par
+                \}else\par
+                \{\par
+                    Toast.makeText(MainActivity.this, "Nh\u7853?p sai t\f0\lang1033\'ean ho\f2\lang1066\u7863?c m\u7853?t kh\u7849?u", Toast.LENGTH_SHORT).show();\par
+                \}\par
+            \}\par
+        \});\par
+    \}\par
+\}\par
+\par
+///////////////////////////////////////////Dukhach////////////////////////////////\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".Dukhach">\par
+\par
+    <TextView\par
+        android:id="@+id/textView4"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="120dp"\par
+        android:layout_marginTop="22dp"\par
+        android:layout_marginEnd="119dp"\par
+        android:text="TH\f0\lang1033\'d4NG TIN DU KH\'c1CH"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="@+id/textView5"\par
+        app:layout_constraintTop_toTopOf="parent" />\par
+\par
+    <EditText\par
+        android:id="@+id/txtTen"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="19dp"\par
+        android:layout_marginBottom="16dp"\par
+        android:ems="10"\par
+        android:hint="Nh\f2\lang1066\u7853?p t\f0\lang1033\'ean"\par
+        android:inputType="text"\par
+        app:layout_constraintBottom_toTopOf="@+id/textView5"\par
+        app:layout_constraintStart_toStartOf="@+id/textView5" />\par
+\par
+    <TextView\par
+        android:id="@+id/textView5"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="27dp"\par
+        android:layout_marginTop="131dp"\par
+        android:text="Gi\f2\lang1066\u7899?i t\f0\lang1033\'ednh"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent" />\par
+\par
+    <RadioGroup\par
+        android:id="@+id/radioGroup"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="28dp"\par
+        android:layout_marginBottom="15dp"\par
+        android:orientation="horizontal"\par
+        app:layout_constraintBottom_toTopOf="@+id/textView6"\par
+        app:layout_constraintStart_toStartOf="@+id/textView6">\par
+\par
+        <RadioButton\par
+            android:id="@+id/rdNam"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="Nam" />\par
+\par
+        <RadioButton\par
+            android:id="@+id/rdNu"\par
+            android:layout_width="wrap_content"\par
+            android:layout_height="wrap_content"\par
+            android:text="N\f2\lang1066\u7919?" />\par
+    </RadioGroup>\par
+\par
+    <TextView\par
+        android:id="@+id/textView6"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="27dp"\par
+        android:layout_marginTop="66dp"\par
+        android:text="S\u7903? th\f0\lang1033\'edch"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />\par
+\par
+    <CheckBox\par
+        android:id="@+id/ckXemPhim"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="16dp"\par
+        android:layout_marginTop="27dp"\par
+        android:text="Xem phim"\par
+        app:layout_constraintStart_toStartOf="@+id/textView6"\par
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />\par
+\par
+    <CheckBox\par
+        android:id="@+id/ckNgheNhac"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="13dp"\par
+        android:text="Nghe nh\f2\lang1066\u7841?c"\par
+        app:layout_constraintStart_toStartOf="@+id/ckXemPhim"\par
+        app:layout_constraintTop_toBottomOf="@+id/ckXemPhim" />\par
+\par
+    <CheckBox\par
+        android:id="@+id/ckLuotweb"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="32dp"\par
+        android:text="L\f1\u432?\f2\u7899?t web"\par
+        app:layout_constraintStart_toStartOf="@+id/ckNgheNhac"\par
+        app:layout_constraintTop_toBottomOf="@+id/ckNgheNhac" />\par
+\par
+    <CheckBox\par
+        android:id="@+id/ckMuaSam"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="15dp"\par
+        android:text="Mua s\u7855?m"\par
+        app:layout_constraintStart_toStartOf="@+id/ckLuotweb"\par
+        app:layout_constraintTop_toBottomOf="@+id/ckLuotweb" />\par
+\par
+    <Button\par
+        android:id="@+id/btnTroLai"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="6dp"\par
+        android:layout_marginEnd="5dp"\par
+        android:text="Tr\u7903? l\u7841?i"\par
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnChon"\par
+        app:layout_constraintEnd_toEndOf="@+id/ckNgheNhac"\par
+        app:layout_constraintStart_toStartOf="@+id/ckMuaSam" />\par
+\par
+    <Button\par
+        android:id="@+id/btnChon"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="61dp"\par
+        android:layout_marginEnd="17dp"\par
+        android:text="Ch\u7885?n"\par
+        app:layout_constraintEnd_toStartOf="@+id/btnTiepList"\par
+        app:layout_constraintTop_toBottomOf="@+id/ckMuaSam" />\par
+\par
+    <Button\par
+        android:id="@+id/btnTiepList"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginEnd="40dp"\par
+        android:text="Ti\u7871?p"\par
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnChon"\par
+        app:layout_constraintEnd_toEndOf="parent" />\par
+</android.support.constraint.ConstraintLayout>\par
+\par
+/////////////////////////////Main///////////////////////////////////////\par
+\par
+package com.example.chuan_nhat;\par
+\par
+import android.content.Intent;\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.Button;\par
+import android.widget.CheckBox;\par
+import android.widget.EditText;\par
+import android.widget.RadioButton;\par
+import android.widget.Toast;\par
+\par
+public class Dukhach extends AppCompatActivity \{\par
+    Button btnTroLai, btnChon, btnTiep;\par
+    EditText txtTen;\par
+    RadioButton rdNam, rdNu;\par
+    CheckBox ckXemPhim, ckNgheNhac,ckLuotWeb, ckMuaSam;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_dukhach);\par
+        //tham chi\u7871?u\par
+        btnChon = findViewById(R.id.btnChon);\par
+        btnTroLai = findViewById(R.id.btnTroLai);\par
+        btnTiep = findViewById(R.id.btnTiepList);\par
+        txtTen = findViewById(R.id.txtTen);\par
+        rdNam = findViewById(R.id.rdNam);\par
+        rdNu = findViewById(R.id.rdNu);\par
+        ckLuotWeb = findViewById(R.id.ckLuotweb);\par
+        ckXemPhim = findViewById(R.id.ckXemPhim);\par
+        ckNgheNhac = findViewById(R.id.ckNgheNhac);\par
+        ckMuaSam = findViewById(R.id.ckMuaSam);\par
+        btnTiep.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                Intent intent = new Intent(Dukhach.this, Khachhang.class);\par
+                startActivity(intent);\par
+            \}\par
+        \});\par
+        btnTroLai.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                Intent intent = new Intent(Dukhach.this, MainActivity.class);\par
+                startActivity(intent);\par
+            \}\par
+        \});\par
+        btnChon.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                String ten = txtTen.getText().toString();\par
+                String gioitinh = "";\par
+                if(rdNu.isChecked())\{\par
+                    gioitinh = "N\u7919?";\par
+                \}\par
+                if(rdNam.isChecked())\{\par
+                    gioitinh = "Nam";\par
+                \}\par
+                String sothich = "";\par
+                if(ckXemPhim.isChecked())\{\par
+                    sothich += "Xem phim, ";\par
+                \}\par
+                if(ckLuotWeb.isChecked())\{\par
+                    sothich += "L\f1\u432?\f2\u7899?t web, ";\par
+                \}\par
+                if(ckNgheNhac.isChecked())\{\par
+                    sothich += "Nghe nh\u7841?c, ";\par
+                \}\par
+                if(ckMuaSam.isChecked())\{\par
+                    sothich += "Mua s\u7855?m, ";\par
+                \}\par
+                if(ten.isEmpty()||sothich.equals("")||gioitinh.equals(""))\{\par
+                    Toast.makeText(Dukhach.this, "B\u7841?n ch\f1\u432?a nh\f2\u7853?p \f1\'f0\f2\u7911? d\u7919? li\u7879?u", Toast.LENGTH_SHORT).show();\par
+                \}\par
+                else \{\par
+                    Toast.makeText(Dukhach.this, "B\u7841?n c\f0\lang1033\'f3:" +ten+", " + gioitinh+ ", " + sothich, Toast.LENGTH_SHORT).show();\par
+                \}\par
+            \}\par
+        \});\par
+    \}\par
+\}\par
+\par
+///////////////////////////////////////Khachhang/////////////////////////////////////\par
+\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".Khachhang">\par
+\par
+    <TextView\par
+        android:id="@+id/textView7"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="16dp"\par
+        android:text="DANH S\'c1CH KH\'c1CH H\'c0NG"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent" />\par
+\par
+    <ListView\par
+        android:id="@+id/lstkh"\par
+        android:layout_width="409dp"\par
+        android:layout_height="300dp"\par
+        android:layout_marginTop="16dp"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />\par
+\par
+    <Button\par
+        android:id="@+id/btnTrolaiDukhach"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="87dp"\par
+        android:layout_marginTop="16dp"\par
+        android:text="Tr\f2\lang1066\u7903? l\u7841?i"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/lstkh" />\par
+\par
+    <Button\par
+        android:id="@+id/btnTiepJson"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="24dp"\par
+        android:layout_marginTop="16dp"\par
+        android:text="Ti\u7871?p"\par
+        app:layout_constraintStart_toEndOf="@+id/btnTrolaiDukhach"\par
+        app:layout_constraintTop_toBottomOf="@+id/lstkh" />\par
+\par
+</android.support.constraint.ConstraintLayout>\par
+\par
+//////////////////////////////MAin//////////////////////////////\par
+\par
+package com.example.chuan_nhat;\par
+\par
+import android.content.Intent;\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.AdapterView;\par
+import android.widget.ArrayAdapter;\par
+import android.widget.Button;\par
+import android.widget.ListView;\par
+import android.widget.Toast;\par
+\par
+import java.util.ArrayList;\par
+import java.util.Arrays;\par
+\par
+public class Khachhang extends AppCompatActivity \{\par
+    ArrayList<String> dskh = new ArrayList<>(Arrays.asList("Nguy\u7877?n V\f1\'e3n A-09878987",\par
+            "Nguy\f2\u7877?n Th\u7883? B-0987655","Nguy\u7877?n Tr\u7885?ng T\u7841?i-0987654","\f1\'d0o\f0\lang1033\'e0n V\f1\'e3n V\u432?\u417?n-0897876554"));\par
+\par
+    Button btnTrolai, btnTiep;\par
+    ListView listView;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_khachhang);\par
+        //tham chi\f2\lang1066\u7871?u\par
+        listView = findViewById(R.id.lstkh);\par
+        btnTiep = findViewById(R.id.btnTiepJson);\par
+        btnTrolai = findViewById(R.id.btnTrolaiDukhach);\par
+        //hi\u7875?n th\u7883? list\par
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,dskh);\par
+        listView.setAdapter(adapter);\par
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() \{\par
+            @Override\par
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) \{\par
+                Toast.makeText(Khachhang.this, "B\u7841?n ch\u7885?n " + dskh.get(position), Toast.LENGTH_SHORT).show();\par
+            \}\par
+        \});\par
+        btnTiep.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                Intent intent = new Intent(Khachhang.this, Sanpham.class);\par
+                startActivity(intent);\par
+            \}\par
+        \});\par
+        btnTrolai.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                Intent intent = new Intent(Khachhang.this, Dukhach.class);\par
+                startActivity(intent);\par
+            \}\par
+        \});\par
+    \}\par
+\}\par
+\par
+/////////////////////////////////////Sanpham///////////////////////////////////////\par
+\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".Sanpham">\par
+\par
+    <Button\par
+        android:id="@+id/btnHienThi"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="30dp"\par
+        android:text="Hi\u7875?n th\u7883? Json "\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent" />\par
+\par
+    <ListView\par
+        android:id="@+id/lstJson"\par
+        android:layout_width="409dp"\par
+        android:layout_height="651dp"\par
+        android:layout_marginTop="16dp"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/btnHienThi" />\par
+\par
+</android.support.constraint.ConstraintLayout>\par
+\par
+//////////////////////Main/////////////////////////////\par
+\par
+package com.example.chuan_nhat;\par
+\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.ArrayAdapter;\par
+import android.widget.Button;\par
+import android.widget.ListView;\par
+\par
+import org.json.JSONArray;\par
+import org.json.JSONException;\par
+import org.json.JSONObject;\par
+\par
+import java.util.ArrayList;\par
+\par
+public class Sanpham extends AppCompatActivity \{\par
+    String json_data= "[\\n" +\par
+            "\{\\n" +\par
+            "\\"ma\\":\\"sp1\\",\\n"+\par
+            "\\"ten\\":\\"m\f0\lang1033\'e1y t\'ednh del 1103\\",\\n"+\par
+            "\\"gia\\":\\"10.000.000\\",\\n"+\par
+            "\\"loai\\":\\"m\'e1y t\'ednh\\"\\n"+\par
+            "\},\\n"+\par
+            "\{\\n" +\par
+            "\\"ma\\":\\"sp2\\",\\n"+\par
+            "\\"ten\\":\\"Di\f2\lang1066\u7879?n tho\u7841?i ip 15\\",\\n"+\par
+            "\\"gia\\":\\"20.000.000\\",\\n"+\par
+            "\\"loai\\":\\"\f1\'f0i\f2\u7879?n tho\u7841?i\\"\\n"+\par
+            "\},\\n"+\par
+            "\{\\n" +\par
+            "\\"ma\\":\\"sp3\\",\\n"+\par
+            "\\"ten\\":\\"m\f0\lang1033\'e1y t\'ednh b\f2\lang1066\u7843?ng 11\\",\\n"+\par
+            "\\"gia\\":\\"10.000.000\\",\\n"+\par
+            "\\"loai\\":\\"m\f0\lang1033\'e1y t\'ednh b\f2\lang1066\u7843?ng\\"\\n"+\par
+            "\}\\n"+\par
+\par
+            "]";\par
+\par
+    Button btnHienThi;\par
+    ListView lstJson;\par
+    ArrayList<String> dssp = new ArrayList<>();\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_sanpham);\par
+        btnHienThi = findViewById(R.id.btnHienThi);\par
+        lstJson = findViewById(R.id.lstJson);\par
+        btnHienThi.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                try \{\par
+                    JSONArray array = new JSONArray(json_data);\par
+                    for (int i = 0; i < array.length(); i++) \{\par
+                        JSONObject object = array.getJSONObject(i);\par
+                        String ma = object.getString("ma");\par
+                        String ten = object.getString("ten");\par
+                        String gia = object.getString("gia");\par
+                        String loai = object.getString("loai");\par
+                        String sp = ma+", " + ten+", " + gia + ", " + loai;\par
+                        dssp.add(sp);\par
+                    \}\par
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(Sanpham.this, android.R.layout.simple_list_item_1,dssp);\par
+                    lstJson.setAdapter(adapter);\par
+                \} catch (JSONException e) \{\par
+                    throw new RuntimeException(e);\par
+                \}\par
+            \}\par
+        \});\par
+    \}\par
+\}\par
+\cf1\f0\lang1033 //////////////////////////////////bai2///////////////////////////\cf0\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".MainActivity">\par
+\par
+    <TextView\par
+        android:id="@+id/textView"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:text="Thong Tin Dang Nhap"\par
+        android:textColor="#3F51B5"\par
+        android:textSize="20dp"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.053" />\par
+\par
+    <EditText\par
+        android:id="@+id/edtemail"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="104dp"\par
+        android:ems="10"\par
+        android:hint="Email"\par
+        android:inputType="textPersonName"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.497"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/textView"\par
+        tools:ignore="MissingConstraints" />\par
+\par
+    <EditText\par
+        android:id="@+id/edtpass"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="108dp"\par
+        android:ems="10"\par
+        android:hint="Password"\par
+        android:inputType="textPersonName"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.497"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/edtemail"\par
+        tools:ignore="MissingConstraints" />\par
+\par
+    <Button\par
+        android:id="@+id/btndangnhap"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginStart="84dp"\par
+        android:layout_marginTop="156dp"\par
+        android:background="#E91E63"\par
+        android:text="Dang Nhap"\par
+        android:textColor="#FFEB3B"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/edtpass"\par
+        tools:ignore="MissingConstraints" />\par
+\par
+    <Button\par
+        android:id="@+id/btndangky"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="156dp"\par
+        android:layout_marginEnd="88dp"\par
+        android:text="Dang Ky"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintTop_toBottomOf="@+id/edtpass"\par
+        tools:ignore="MissingConstraints" />\par
+\par
+</android.support.constraint.ConstraintLayout>\par
+////////////////////////////main///////////////////////////\par
+package com.example.login;\par
+\par
+import android.content.Intent;\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.Button;\par
+import android.widget.EditText;\par
+import android.widget.Toast;\par
+\par
+public class MainActivity extends AppCompatActivity \{\par
+    EditText edtemail,edtpass;\par
+    Button btndangnhap;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main);\par
+        edtemail=findViewById(R.id.edtemail);\par
+        edtpass=findViewById(R.id.edtpass);\par
+        btndangnhap=findViewById(R.id.btndangnhap);\par
+        btndangnhap.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                if(edtemail.getText().toString().equals("Admin")&&edtpass.getText().toString().equals("admin"))\{\par
+                    Intent intent=new Intent(MainActivity.this,MainActivity2.class);\par
+                    startActivity(intent);\par
+                \}\par
+                else \{\par
+                    Toast.makeText(MainActivity.this, "Vui long Nhap lai", Toast.LENGTH_SHORT).show();\par
+\par
+                \}\par
+            \}\par
+\par
+        \});\par
+    \}\par
+\}\par
+//////////////////chon/////////////////////////\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:id="@+id/main"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".MainActivity2">\par
+    <LinearLayout\par
+        android:layout_width="match_parent"\par
+        android:layout_height="match_parent"\par
+        android:orientation="vertical"\par
+        android:background="@color/white">\par
+\par
+        <TextView\par
+            android:id="@+id/textView"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="\f1\'d0\'c3NG K\f0\'dd M\'d4N H\f2\lang1066\u7884?C"\par
+            android:textSize="30dp"\par
+            android:layout_marginLeft="60dp"/>\par
+\par
+\par
+        <LinearLayout\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:orientation="horizontal">\par
+\par
+        </LinearLayout>\par
+        <TextView\par
+            android:id="@+id/textView6"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="Mon hoc"\par
+            android:textSize="20dp"\par
+            android:layout_marginLeft="5dp"/>\par
+        <CheckBox\par
+            android:id="@+id/cbj"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="Java" />\par
+\par
+        <CheckBox\par
+            android:id="@+id/cbc"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="C#" />\par
+        <CheckBox\par
+            android:id="@+id/cban"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="Androi" />\par
+\par
+\par
+        <TextView\par
+            android:id="@+id/textView2"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:layout_marginLeft="5dp"\par
+            android:text="Gioi tinh"\par
+            android:textSize="20dp" />\par
+\par
+        <RadioGroup\par
+            android:id="@+id/radioGroup"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:orientation="horizontal">\par
+\par
+            <RadioButton\par
+                android:id="@+id/rnam"\par
+                android:layout_width="wrap_content"\par
+                android:layout_height="wrap_content"\par
+                android:text="Nam" />\par
+\par
+            <RadioButton\par
+                android:id="@+id/rnu"\par
+                android:layout_width="wrap_content"\par
+                android:layout_height="wrap_content"\par
+                android:layout_marginLeft="20dp"\par
+                android:text="Nu" />\par
+        </RadioGroup>\par
+\par
+        <LinearLayout\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:gravity="center"\par
+            android:orientation="horizontal"\par
+            android:layout_marginTop="20dp">\par
+\par
+\par
+            <Button\par
+                android:id="@+id/btnchoose"\par
+                android:layout_width="wrap_content"\par
+                android:layout_height="wrap_content"\par
+                android:text="CHOOSE" />\par
+\par
+            <Button\par
+                android:id="@+id/btnexit2"\par
+                android:layout_width="wrap_content"\par
+                android:layout_height="wrap_content"\par
+                android:layout_marginLeft="50dp"\par
+                android:text="EXIT" />\par
+\par
+            <Button\par
+                android:id="@+id/btnnext"\par
+                android:layout_width="wrap_content"\par
+                android:layout_height="wrap_content"\par
+                android:layout_marginLeft="50dp"\par
+                android:text="NEXT"  />\par
+        </LinearLayout>\par
+\par
+    </LinearLayout>\par
+</android.support.constraint.ConstraintLayout>\par
+/////////////////////////////////main//////////////////////////\par
+package com.example.login;\par
+\par
+import android.content.Intent;\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.Button;\par
+import android.widget.CheckBox;\par
+import android.widget.RadioButton;\par
+import android.widget.RadioGroup;\par
+import android.widget.Toast;\par
+\par
+public class MainActivity2 extends AppCompatActivity \{\par
+    CheckBox java, c, android;\par
+    RadioGroup rg;\par
+    RadioButton rnam, rnu;\par
+    Button choose, exit, next;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main2);\par
+        java = findViewById(R.id.cbj);\par
+        c = findViewById(R.id.cbc);\par
+        android = findViewById(R.id.cban);\par
+        rg = findViewById(R.id.radioGroup);\par
+        choose = findViewById(R.id.btnchoose);\par
+        choose.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                StringBuilder result = new StringBuilder();\par
+                int ID = rg.getCheckedRadioButtonId();\par
+                RadioButton rb = MainActivity2.this.findViewById(ID);\par
+                if(rb == null)\{\par
+                    result.append("Ban chua chon gioi tinh");\par
+                \}\par
+                else\{\par
+                    result.append("Gioi tinh ").append(rb.getText()).append("\\n");\par
+                \}\par
+                if(java.isChecked()||c.isChecked()||android.isChecked())\{\par
+                    result.append("Mon hoc :");\par
+                    if(java.isChecked())\{result.append("Java");\}\par
+                    if(c.isChecked())\{result.append("C#");\}\par
+                    if(android.isChecked())\{result.append("android");\}\par
+                \}\par
+                else \{\par
+                    result.append("Ban chua chon mon hoc");\par
+                \}\par
+                Toast.makeText(MainActivity2.this, result.toString(), Toast.LENGTH_SHORT).show();\par
+            \}\par
+\par
+        \});\par
+        exit = findViewById(R.id.btnexit2);\par
+        exit.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                finish();\par
+            \}\par
+        \});\par
+        next = findViewById(R.id.btnnext);\par
+        next.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                Intent i = new Intent(MainActivity2.this, MainActivity3.class);\par
+                startActivity(i);\par
+            \}\par
+        \});\par
+    \}\par
+\}\par
+///////////////////////////hienthilistvew/////////////////////////////////\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:id="@+id/main"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".MainActivity3">\par
+    <LinearLayout\par
+        android:layout_width="match_parent"\par
+        android:layout_height="match_parent"\par
+        android:orientation="vertical">\par
+\par
+\par
+        <TextView\par
+            android:id="@+id/textView"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:layout_marginTop="50dp"\par
+            android:text="CAC LOAI QUA"\par
+            android:textSize="30dp" />\par
+\par
+        <ListView\par
+            android:id="@+id/lv1"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="413dp"\par
+            android:layout_marginTop="20dp"\par
+            android:background="@color/white" />\par
+        <LinearLayout\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:gravity="center"\par
+            android:orientation="horizontal"\par
+            android:layout_marginTop="20dp">\par
+\par
+        </LinearLayout>\par
+\par
+        <Button\par
+            android:id="@+id/btntiep"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="wrap_content"\par
+            android:text="NEXT" />\par
+    </LinearLayout>\par
+\par
+</android.support.constraint.ConstraintLayout>\par
+/////////////////////////////////main////////////////////////////////////\par
+package com.example.login;\par
+\par
+import android.app.AlertDialog;\par
+import android.content.Intent;\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.AdapterView;\par
+import android.widget.ArrayAdapter;\par
+import android.widget.Button;\par
+import android.widget.ListView;\par
+import android.widget.Toast;\par
+\par
+import java.util.ArrayList;\par
+import java.util.Arrays;\par
+\par
+public class MainActivity3 extends AppCompatActivity \{\par
+    ArrayList<String> dsq = new ArrayList<>(Arrays.asList("TAO","LE","MO","MAN","DAO"));\par
+    ListView lv;\par
+    Button cancel, tiep;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main3);\par
+        lv = findViewById(R.id.lv1);\par
+        hienThiLV();\par
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() \{\par
+            @Override\par
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) \{\par
+                Toast.makeText(MainActivity3.this, "Ban da chon"+"\\t"+dsq.get(i), Toast.LENGTH_SHORT).show();\par
+                new AlertDialog.Builder(MainActivity3.this)\par
+                        .setTitle("Th\f0\lang1033\'f4ng b\'e1o")\par
+                        .setMessage(dsq.get(i))\par
+                        .setPositiveButton("OK",(dialogInterface, i1) ->dialogInterface.dismiss())\par
+                        .show()\par
+                ;\par
+            \}\par
+        \});\par
+        tiep = findViewById(R.id.btntiep);\par
+        tiep.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                Intent i = new Intent(MainActivity3.this, MainActivity4.class);\par
+                startActivity(i);\par
+            \}\par
+        \});\par
+    \}\par
+    private void hienThiLV() \{\par
+        ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,dsq);\par
+        lv.setAdapter(array);\par
+    \}\par
+\}\par
+//////////////////////////////////Json/////////////////////\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:id="@+id/main"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".MainActivity4">\par
+    <LinearLayout\par
+        android:layout_width="match_parent"\par
+        android:layout_height="match_parent"\par
+        android:orientation="vertical">\par
+\par
+        <Button\par
+            android:id="@+id/btnjson"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="75dp"\par
+            android:text="Hi\f2\lang1066\u7875?n th\u7883? JSON" />\par
+\par
+        <ListView\par
+            android:id="@+id/lvjson"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="match_parent" />\par
+    </LinearLayout>\par
+\par
+</android.support.constraint.ConstraintLayout>\par
+////////////////////////////////main////////////////////////////////////\par
+package com.example.login;\par
+\par
+import android.support.v7.app.AppCompatActivity;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.ArrayAdapter;\par
+import android.widget.Button;\par
+import android.widget.ListView;\par
+\par
+import org.json.JSONArray;\par
+import org.json.JSONException;\par
+import org.json.JSONObject;\par
+\par
+import java.util.ArrayList;\par
+\par
+public class MainActivity4 extends AppCompatActivity \{\par
+    String json_data = "[\\n" +\par
+            "\{\\n" +\par
+            "\\"ten\\":\\"Hoang ne\\",\\n" +\par
+            "\\"luong\\":\\"65346476\\"\\n" +\par
+            "\},\\n" +\par
+            "\{\\n" +\par
+            "\\"ten\\":\\"xuan\\",\\n" +\par
+            "\\"luong\\":\\"9876544\\"\\n" +\par
+            "\}\\n" +\par
+            "]";\par
+    Button Hienthi;\par
+    ListView lvjs;\par
+    ArrayList<congNhan> dsgv = new ArrayList<>();\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main4);\par
+        Hienthi = findViewById(R.id.btnjson);\par
+        Hienthi.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                hienthijs();\par
+            \}\par
+        \});\par
+        lvjs = findViewById(R.id.lvjson);\par
+        Docjson();\par
+    \}\par
+    private void hienthijs() \{\par
+        ArrayAdapter<congNhan> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,dsgv);\par
+        lvjs.setAdapter(adapter);\par
+    \}\par
+\par
+    private void Docjson() \{\par
+        try \{\par
+            JSONArray jsonArray = new JSONArray(json_data);\par
+            for (int i = 0; i < jsonArray.length(); i++) \{\par
+                JSONObject object = jsonArray.getJSONObject(i);\par
+                String ten = object.getString("ten");\par
+                String luong = object.getString("luong");\par
+                congNhan gv = new congNhan(ten, luong);\par
+                dsgv.add(gv);\par
+\par
+            \}\par
+        \} catch (JSONException e) \{\par
+            throw new RuntimeException(e);\par
+        \}\par
+    \}\par
+\}\par
+////////////////////////classCongnha///////////////////////////////////\par
+package com.example.login;\par
+\par
+public class congNhan \{\par
+    private String ten,luong;\par
+\par
+    @Override\par
+    public String toString() \{\par
+        return\par
+                "\\nT\f0\lang1033\'ean c\'f4ng nh\'e2n:" + ten +\par
+                "\\nL\f1\u432?\u417?ng:" + luong\par
+                ;\par
+    \}\par
+\par
+    public String getTen() \{\par
+        return ten;\par
+    \}\par
+\par
+    public void setTen(String ten) \{\par
+        this.ten = ten;\par
+    \}\par
+\par
+    public String getLuong() \{\par
+        return luong;\par
+    \}\par
+\par
+    public void setLuong(String luong) \{\par
+        this.luong = luong;\par
+    \}\par
+\par
+    public congNhan(String ten, String luong) \{\par
+        this.ten = ten;\par
+        this.luong = luong;\par
+    \}\par
+\par
+    public congNhan() \{\par
+    \}\par
+\}\par
+\par
+\cf1 //////////////////////////////bai co them sua xoa////////////////////////\par
+\cf0\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    tools:context=".MainActivity">\par
+\par
+    <EditText\par
+        android:id="@+id/edUser"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:ems="10"\par
+        android:inputType="text"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.666"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.138" />\par
+\par
+    <TextView\par
+        android:id="@+id/textView2"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:text="Username:"\par
+        android:textSize="20sp"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.05"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.154" />\par
+\par
+    <TextView\par
+        android:id="@+id/textView3"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:text="Password:"\par
+        android:textSize="20sp"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.056"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.224" />\par
+\par
+    <EditText\par
+        android:id="@+id/edPassword"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:ems="10"\par
+        android:inputType="textPassword"\par
+        android:textColor="@color/black"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.666"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.22" />\par
+\par
+    <Button\par
+        android:id="@+id/btnLogin"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:text="Login"\par
+        android:textSize="16sp"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.683"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.317" />\par
+\par
+    <Button\par
+        android:id="@+id/btnExit"\par
+        android:layout_width="wrap_content"\par
+        android:layout_height="wrap_content"\par
+        android:text="Exit"\par
+        android:textSize="16sp"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.213"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.317" />\par
+\par
+    <TextView\par
+        android:id="@+id/textView"\par
+        android:layout_width="176dp"\par
+        android:layout_height="51dp"\par
+        android:text="Login Form"\par
+        android:textSize="34sp"\par
+        app:layout_constraintBottom_toBottomOf="parent"\par
+        app:layout_constraintEnd_toEndOf="parent"\par
+        app:layout_constraintHorizontal_bias="0.497"\par
+        app:layout_constraintStart_toStartOf="parent"\par
+        app:layout_constraintTop_toTopOf="parent"\par
+        app:layout_constraintVertical_bias="0.023" />\par
+\par
+</androidx.constraintlayout.widget.ConstraintLayout>\par
+////////////////////////////main///////////////////////////\par
+package com.example.kiemtratonghop1;\par
+\par
+import androidx.appcompat.app.AppCompatActivity;\par
+\par
+import android.content.Intent;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.Button;\par
+import android.widget.EditText;\par
+import android.widget.Toast;\par
+\par
+public class MainActivity extends AppCompatActivity \{\par
+    private EditText edUser,edPassword;\par
+    private Button btnExit,btnLogin;\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main);\par
+\par
+        edUser = findViewById(R.id.edUser);\par
+        edPassword= findViewById(R.id.edPassword);\par
+        btnLogin = findViewById(R.id.btnLogin);\par
+        btnExit = findViewById(R.id.btnExit);\par
+        btnLogin.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                String user = edUser.getText().toString();\par
+                String password = edPassword.getText().toString();\par
+                if(user.equals("taq")&& password.equals("117"))\{\par
+                    Intent intent = new Intent(MainActivity.this, Danhsachgiangvien.class);\par
+                    startActivity(intent);\par
+                \}else \{\par
+                    Toast.makeText(MainActivity.this, "Sai T\f0\'e0i kho\f2\lang1066\u7843?n ho\u7863?c m\u7853?t kh\u7849?u!!h\f0\lang1033\'e3y nh\f2\lang1066\u7853?p l\u7841?i", Toast.LENGTH_SHORT).show();\par
+                \}\par
+            \}\par
+        \});\par
+        btnExit.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                finishAffinity();\par
+            \}\par
+        \});\par
+    \}\par
+\}\par
+///////////////////////////////////////dsgiangvien////////////////////////////////\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    android:orientation="vertical"\par
+    android:padding="16dp">\par
+\par
+    <TextView\par
+        android:layout_width="match_parent"\par
+        android:layout_height="wrap_content"\par
+        android:text="B\f0\lang1033\'e0i thi"\par
+        android:textSize="18sp"\par
+        android:textStyle="bold" />\par
+\par
+    <TextView\par
+        android:layout_width="match_parent"\par
+        android:layout_height="wrap_content"\par
+        android:text="DANH S\'c1CH GI\f2\lang1066\u7842?NG VI\f0\lang1033\'caN"\par
+        android:textSize="16sp"\par
+        android:textStyle="bold"\par
+        android:layout_marginTop="16dp" />\par
+\par
+    <EditText\par
+        android:id="@+id/edTengv"\par
+        android:layout_width="match_parent"\par
+        android:layout_height="wrap_content"\par
+        android:hint="Nh\f2\lang1066\u7853?p t\f0\lang1033\'ean gi\f2\lang1066\u7843?ng vi\f0\lang1033\'ean" />\par
+\par
+    <EditText\par
+        android:id="@+id/edSdt"\par
+        android:layout_width="match_parent"\par
+        android:layout_height="wrap_content"\par
+        android:hint="Nh\f2\lang1066\u7853?p s\u7889? \f1\'f0i\f2\u7879?n tho\u7841?i" />\par
+\par
+    <LinearLayout\par
+        android:layout_width="match_parent"\par
+        android:layout_height="wrap_content"\par
+        android:orientation="horizontal"\par
+        android:layout_marginTop="8dp">\par
+\par
+        <Button\par
+            android:id="@+id/btnThem"\par
+            android:layout_width="0dp"\par
+            android:layout_height="wrap_content"\par
+            android:layout_weight="1"\par
+            android:text="TH\f0\lang1033\'caM"\par
+\par
+            />\par
+\par
+\par
+        <Button\par
+            android:id="@+id/btnXoa"\par
+            android:layout_width="0dp"\par
+            android:layout_height="wrap_content"\par
+            android:layout_weight="1"\par
+            android:text="X\'d3A" />\par
+\par
+        <Button\par
+            android:id="@+id/btnTiep"\par
+            android:layout_width="0dp"\par
+            android:layout_height="wrap_content"\par
+            android:layout_weight="1"\par
+            android:text="TI\f2\lang1066\u7870?P" />\par
+\par
+    </LinearLayout>\par
+\par
+    <ListView\par
+        android:id="@+id/lstData"\par
+        android:layout_width="match_parent"\par
+        android:layout_height="wrap_content"\par
+        android:layout_marginTop="16dp" />\par
+\par
+</LinearLayout>\par
+/////////////////////main/////////////////////////////\par
+package com.example.kiemtratonghop1;\par
+\par
+import androidx.appcompat.app.AppCompatActivity;\par
+\par
+import android.content.Intent;\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.AdapterView;\par
+import android.widget.ArrayAdapter;\par
+import android.widget.Button;\par
+import android.widget.EditText;\par
+import android.widget.ListView;\par
+import android.widget.Toast;\par
+\par
+import java.util.ArrayList;\par
+\par
+public class Danhsachgiangvien extends AppCompatActivity \{\par
+    private EditText edTengv, edSdt;\par
+    private Button btnThem, btnXoa, btnTiep;\par
+    private ListView lstData;\par
+    private ArrayList<String> instructorList;\par
+    private ArrayAdapter<String> adapter;\par
+    private int selectedItemPosition = -1;\par
+\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_danhsachgiangvien);\par
+\par
+        edTengv = findViewById(R.id.edTengv);\par
+        edSdt = findViewById(R.id.edSdt);\par
+        btnThem = findViewById(R.id.btnThem);\par
+        btnXoa = findViewById(R.id.btnXoa);\par
+        btnTiep = findViewById(R.id.btnTiep);\par
+        lstData = findViewById(R.id.lstData);\par
+\par
+        instructorList = new ArrayList<>();\par
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, instructorList);\par
+        lstData.setAdapter(adapter);\par
+\par
+        btnThem.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                String user = edTengv.getText().toString();\par
+                String sdt = edSdt.getText().toString();\par
+\par
+                if (!user.isEmpty() && !sdt.isEmpty()) \{\par
+                    String instructor = user + "-" + sdt;\par
+                    instructorList.add(instructor);\par
+                    adapter.notifyDataSetChanged();\par
+                    edTengv.setText("");\par
+                    edSdt.setText("");\par
+\par
+                    Toast.makeText(Danhsachgiangvien.this, "\f1\'d0\f0\lang1033\'e3 Th\'eam Gi\f2\lang1066\u7843?ng Vi\f0\lang1033\'ean", Toast.LENGTH_LONG).show();\par
+                \} else \{\par
+                    Toast.makeText(Danhsachgiangvien.this, "Vui l\'f2ng nh\f2\lang1066\u7853?p \f1\'f0\f2\u7847?y \f1\'f0\f2\u7911? th\f0\lang1033\'f4ng tin", Toast.LENGTH_LONG).show();\par
+                \}\par
+            \}\par
+        \});\par
+\par
+        btnXoa.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                if (selectedItemPosition != -1) \{\par
+                    instructorList.remove(selectedItemPosition);\par
+                    adapter.notifyDataSetChanged();\par
+                    selectedItemPosition = -1;\par
+                    Toast.makeText(Danhsachgiangvien.this, "\f1\'d0\f0\'e3 xo\'e1 gi\f2\lang1066\u7843?ng vi\f0\lang1033\'ean", Toast.LENGTH_LONG).show();\par
+                \} else \{\par
+                    Toast.makeText(Danhsachgiangvien.this, "Vui l\'f2ng ch\f2\lang1066\u7885?n gi\u7843?ng vi\f0\lang1033\'ean \f1\'f0\f2\lang1066\u7875? xo\f0\lang1033\'e1", Toast.LENGTH_LONG).show();\par
+                \}\par
+            \}\par
+        \});\par
+\par
+        lstData.setOnItemClickListener(new AdapterView.OnItemClickListener() \{\par
+            @Override\par
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) \{\par
+                selectedItemPosition = i;\par
+                Toast.makeText(Danhsachgiangvien.this, "\f1\'d0\f0\'e3 Ch\f2\lang1066\u7885?n " + instructorList.get(i), Toast.LENGTH_SHORT).show();\par
+            \}\par
+        \});\par
+\par
+        btnTiep.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View view) \{\par
+                Intent intent = new Intent(Danhsachgiangvien.this, ReadJson.class);\par
+                startActivity(intent);\par
+            \}\par
+        \});\par
+    \}\par
+\}\f0\lang9\par
+}
+ 
